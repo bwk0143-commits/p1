@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>MOVING CAR</TITLE>
+<style>
+#sig{
+ width:70px;
+    height:170px;
+    border:1px solid red;
+    position:absolute;
+    top:1px;     
+    right:30px;
+	border-radius:600px;
+    }
+	</style>
+<SCRIPT>
+
+var imgobj=null;
+var animate;
+var light=null;
+function init()
+{
+    imgobj=document.getElementById('myimage');
+    imgobj.style.position='relative';
+    imgobj.style.top='0px';
+}
+
+function move()
+{
+    imgobj.style.top=parseInt(imgobj.style.top)+10+'px';
+    animate=setTimeout(move,10);
+}
+
+function stop()
+{
+    clearTimeout(animate);
+    imgobj.style.top='0px';
+}
+function light()
+{
+  document.getElementById('sig').style.color='green';
+   }
+   function bt()
+   {
+    move();
+	light();
+	}
+
+</SCRIPT>
+</HEAD>
+
+<body onload="init()" onload="light()">
+<div id="sig"  height="100px" width="100px"></div>
+
+<img id="myimage" src="honkler-clown-world.gif" height="100px" width="100px">
+
+<br><br>
+
+<input type="button" value="start"onclick="bt()">
+<input type="button" value="stop" onclick="stop()">
+
+</body>
+</html>
